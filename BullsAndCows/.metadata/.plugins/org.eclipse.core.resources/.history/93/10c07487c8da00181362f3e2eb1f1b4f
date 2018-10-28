@@ -1,0 +1,8 @@
+package org.elsys.netprog.rest;
+
+public class GamesSerializable {
+	public String gameId;
+	public int turnsCount;
+	public String secret;
+	public boolean success;
+}

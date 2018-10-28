@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+/home/alliancehealer/Desktop/IntProg/IntProgHomeworks/BullsAndCows/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+1832101153.index
+1786632767.index
+490245157.index
+1278899916.index
+531580020.index
+2931099180.index

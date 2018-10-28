@@ -1,0 +1,5 @@
+package org.elsys.netprog.rest;
+
+public class Game {
+
+}

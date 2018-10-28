@@ -1,0 +1,17 @@
+package org.elsys.netprog.rest;
+
+public class GuessSerializable {
+	String gameId;
+	int cows;
+	int bulls;
+	int turnsCount;
+	boolean success;
+	
+	public GuessSerializable(String gameId, int cows, int bulls, int turnsCount, boolean success) {
+		this.gameId = gameId;
+		this.cows = cows;
+		this.bulls = bulls;
+		this.turnsCount = turnsCount;
+		this.success = success;
+	}
+}

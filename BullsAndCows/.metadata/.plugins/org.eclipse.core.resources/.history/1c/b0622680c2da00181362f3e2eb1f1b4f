@@ -1,0 +1,9 @@
+package org.elsys.netprog.rest;
+
+public class GuessSerializable {
+	String gameId;
+	int cows;
+	int bulls;
+	int turnsCount;
+	boolean success;
+}
