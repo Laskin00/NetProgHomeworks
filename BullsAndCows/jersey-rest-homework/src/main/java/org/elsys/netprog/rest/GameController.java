@@ -5,11 +5,9 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 import java.util.UUID;
 
-import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -18,8 +16,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
-import org.eclipse.jdt.internal.compiler.ast.SynchronizedStatement;
 
 
 @Path("/game")
@@ -37,14 +33,13 @@ public class GameController {
 		String numbers = "";
 		int number;
 		while(numbers.length() != 4) {
-			if(!numbers.contains(String.valueOf(number = r.nextInt(10)))){
+			if(!numbers.contains(String.valueOf(number = r.nextInt(10))) && number != 0){
 				numbers+=String.valueOf(number);
 			}
 		}
 
 		String gameId = UUID.randomUUID().toString();
 
-		System.out.println(numbers);
 		games.put(gameId, numbers);
 		turnsCounter.put(gameId,0);
 		successChecker.put(gameId,false);
@@ -63,9 +58,8 @@ public class GameController {
 			return Response.status(404).build();
 		}
 		
-		if((guess.length() != 4) || !guess.matches("[12345678910]\\d{3}")) {
-			System.out.println("hi1");
-			return Response.status(404).build();
+		if((guess.chars().distinct().count() != 4) || !guess.matches("[123456789]\\d{3}")) {
+			return Response.status(400).build();
 		}
 		
 		if(guess.equals(games.get(gameId))) {
@@ -73,8 +67,6 @@ public class GameController {
 			bulls = 4;
 			successChecker.put(gameId, true);
 		}else {
-			turnsCounter.put(gameId, turnsCounter.get(gameId) + 1);
-			
 			for(int i = 0; i < 4; i++) {
 				if(guess.charAt(i) == games.get(gameId).charAt(i)) {
 					cows --;
@@ -89,6 +81,7 @@ public class GameController {
 			}
 		
 		}
+		turnsCounter.put(gameId, turnsCounter.get(gameId) + 1);
 		
 		return Response.status(200).entity(new GuessSerializable(gameId,cows,bulls,turnsCounter.get(gameId),success)).build();
 		
