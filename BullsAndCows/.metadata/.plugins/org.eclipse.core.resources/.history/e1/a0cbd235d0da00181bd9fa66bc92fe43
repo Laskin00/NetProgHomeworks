@@ -35,6 +35,7 @@ public class GameController {
 		while(numbers.length() != 4) {
 			if(!numbers.contains(String.valueOf(number = r.nextInt(10)))){
 				numbers+=String.valueOf(number);
+				
 			}
 		}
 

@@ -33,7 +33,7 @@ public class GameController {
 		String numbers = "";
 		int number;
 		while(numbers.length() != 4) {
-			if(!numbers.contains(String.valueOf(number = r.nextInt(10)))){
+			if(!numbers.contains(String.valueOf(number = r.nextInt(10))) && number != 0){
 				numbers+=String.valueOf(number);
 			}
 		}
