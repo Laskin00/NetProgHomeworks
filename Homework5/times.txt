@@ -1,0 +1,2 @@
+3 byte - 1016 millisec
+10000 - 13000 hashes per sec on that algorithm

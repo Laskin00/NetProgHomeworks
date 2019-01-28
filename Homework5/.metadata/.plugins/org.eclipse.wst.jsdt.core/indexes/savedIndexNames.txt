@@ -1,0 +1,6 @@
+INDEX VERSION 1.4+/home/alliancehealer/Desktop/IntProg/IntProgHomeworks/BullsAndCows/Homework5/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+2969061200.index
+914596337.index
+4224395547.index
+3854701803.index
+2852179209.index
